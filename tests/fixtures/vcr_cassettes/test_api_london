@@ -1,0 +1,49 @@
+{
+    "version": 1, 
+    "interactions": [
+        {
+            "request": {
+                "body": null, 
+                "headers": {}, 
+                "method": "GET", 
+                "uri": "http://api.openweathermap.org/data/2.5/forecast/daily?cnt=1&mode=json&q=London&type=like&units=metric"
+            }, 
+            "response": {
+                "status": {
+                    "message": "OK", 
+                    "code": 200
+                }, 
+                "headers": {
+                    "x-cache-key": "/data/2.5/forecast/daily?<api_key>cnt=1&mode=json&q=london&type=like&units=metric", 
+                    "content-length": [
+                        "401"
+                    ], 
+                    "server": [
+                        "openresty"
+                    ], 
+                    "connection": [
+                        "keep-alive"
+                    ], 
+                    "access-control-allow-credentials": [
+                        "true"
+                    ], 
+                    "date": [
+                        "Mon, 18 Jul 2016 19:23:38 GMT"
+                    ], 
+                    "access-control-allow-origin": [
+                        "*"
+                    ], 
+                    "access-control-allow-methods": [
+                        "GET, POST"
+                    ], 
+                    "content-type": [
+                        "application/json; charset=utf-8"
+                    ]
+                }, 
+                "body": {
+                    "string": "{\"city\":{\"id\":2643743,\"name\":\"London\",\"coord\":{\"lon\":-0.12574,\"lat\":51.50853},\"country\":\"GB\",\"population\":0},\"cod\":\"200\",\"message\":0.0147,\"cnt\":1,\"list\":[{\"dt\":1468843200,\"temp\":{\"day\":27.22,\"min\":18.55,\"max\":27.22,\"night\":18.55,\"eve\":27.22,\"morn\":27.22},\"pressure\":1027.19,\"humidity\":62,\"weather\":[{\"id\":800,\"main\":\"Clear\",\"description\":\"clear sky\",\"icon\":\"01d\"}],\"speed\":1.96,\"deg\":153,\"clouds\":0}]}"
+                }
+            }
+        }
+    ]
+}
