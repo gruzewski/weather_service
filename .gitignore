@@ -16,4 +16,7 @@ pip-selfcheck.json
 # PyCharm
 .idea
 
+# All secrets
+config.py*
+
 # Created by .ignore support plugin (hsz.mobi)
