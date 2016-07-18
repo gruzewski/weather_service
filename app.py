@@ -1,8 +1,9 @@
-from flask import Flask
-import urllib3
+from flask import Flask, jsonify
+from lib.provider.openweathermap import Openweathermap
 
 app = Flask(__name__)
 app.config.from_object('config')
+provider = Openweathermap(app.config['PROVIDER']['OPENWEATHERMAP'])
 
 if not app.debug:
     import logging
@@ -12,23 +13,18 @@ if not app.debug:
     log_file.setLevel(logging.WARNING)
     app.logger.addHandler(log_file)
 
-url = app.config['WEATHER_API_URL']
-api_key = app.config['WEATHER_API_KEY']
-
 
 @app.route('/')
 def hello():
     return "Hello World!"
 
 
+@app.route('/api/v1.0/<string:city>')
 @app.route('/api/v1.0/<string:city>/<int:period>')
-def api(city, period):
-    url2 = "http://%sq=%s&type=like&mode=json&APPID=%s" % (url, city, api_key)
-    print url2
-    http = urllib3.PoolManager()
-    response = http.request('GET', url2)
+def api(city, period=1):
+    response = provider.get_daily_forecast(city, period)
 
-    return response.data
+    return jsonify(response)
 
 
 if __name__ == "__main__":
